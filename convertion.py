@@ -35,13 +35,27 @@ def request_matrix():
     for i in range(0, rowImage, 1):
         for j in range(0, colImage, 1):
 
-            valueMatri = int(input("Enter the value: "))
+            valueMatri = float(input("Enter the value: "))
             image[i, j] = valueMatri
     print ("Original matrix:")
-    kernel = np.array([[1, 1, 1], [0, 0, 0], [2, 10, 3]])
     print(image)
-    return image , kernel
+    kernel=request_kernel()
+    return image, kernel
 
+
+def request_kernel():
+    row_kernel = int(input("Enter the number of rows of the kernel: "))
+    col_kernel = row_kernel
+    kernel = np.zeros([row_kernel, col_kernel])
+
+    for i in range( row_kernel):
+        for j in range( col_kernel):
+
+            value_kernel = float(input("Enter the value: "))
+            kernel[i, j] = value_kernel
+    print ("kernel:")
+    print(kernel)
+    return kernel
 
 if __name__ == "__main__":
     image, kernel = request_matrix()
