@@ -27,17 +27,22 @@ def convolution(image, kernel):
     return output
 
 
-if __name__ == "__main__":
+def request_matrix():
     rowImage = int(input("Enter the number of rows of the image matrix: "))
     colImage = int(input("Enter the number of cols of the image matrix: "))
     image = np.zeros([rowImage, colImage])
-    kernel = np.array([[1, 1, 1], [0, 0, 0], [2, 10, 3]])
+
     for i in range(0, rowImage, 1):
         for j in range(0, colImage, 1):
 
             valueMatri = int(input("Enter the value: "))
             image[i, j] = valueMatri
-    print ("Matriz :")
+    print ("Original matrix:")
+    kernel = np.array([[1, 1, 1], [0, 0, 0], [2, 10, 3]])
     print(image)
+    return image , kernel
 
+
+if __name__ == "__main__":
+    image, kernel = request_matrix()
     convoli = convolution(image, kernel)
