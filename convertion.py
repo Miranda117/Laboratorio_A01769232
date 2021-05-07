@@ -4,10 +4,10 @@ from scipy  import signal
 
 def convolution(image, kernel):
 
-    output = signal.convolve2d(image, kernel,mode="valid")
+    output_matrix = signal.convolve2d(image, kernel,mode="valid")
     print ("this is the final matix")
-    print (output)
-    return output
+    print (output_matrix)
+    return output_matrix
 
 
 def request_matrix():
