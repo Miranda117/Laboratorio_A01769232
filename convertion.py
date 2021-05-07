@@ -1,28 +1,11 @@
 import numpy as np
-
-
-def conv_helper(fragment, kernel):
-    f_row, f_col = fragment.shape
-    k_row, k_col = kernel.shape
-    result = 0.0
-    for row in range(f_row):
-        for col in range(f_col):
-            result += fragment[row, col] * kernel[row, col]
-    return result
+from scipy  import signal
 
 
 def convolution(image, kernel):
 
-    image_row, image_col = image.shape
-    kernel_row, kernel_col = kernel.shape
-    output = np.zeros(image.shape)
-
-    for row in range(image_row):
-        for col in range(image_col):
-                output[row, col] = conv_helper(
-                        image[row:row + kernel_row,
-                        col:col + kernel_col], kernel)
-
+    output = signal.convolve2d(image, kernel,mode="valid")
+    print ("this is the final matix")
     print (output)
     return output
 
@@ -53,7 +36,7 @@ def request_kernel():
 
             value_kernel = float(input("Enter the value: "))
             kernel[i, j] = value_kernel
-    print ("kernel:")
+    print ("kernel: ")
     print(kernel)
     return kernel
 
