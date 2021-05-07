@@ -1,10 +1,11 @@
 import numpy as np
-from scipy  import signal
+from scipy import signal
+
 
 # Funcion para calcular la convolución de una matriz de dos dimensiones 
 def convolution(image, kernel):
     #Se hace uso de el metodo convolve2d que viene de la libreria scipy
-    output_matrix = signal.convolve2d(image, kernel,mode="valid")
+    output_matrix = signal.convolve2d(image, kernel, mode="valid")
     print ("this is the final matix")
     print (output_matrix)
     return output_matrix
@@ -23,7 +24,7 @@ def request_matrix():
             image[i, j] = valueMatri
     print ("Original matrix:")
     print(image)
-    kernel=request_kernel()
+    kernel = request_kernel()
     return image, kernel
 
 
@@ -34,8 +35,8 @@ def request_kernel():
     col_kernel = row_kernel
     kernel = np.zeros([row_kernel, col_kernel])
 
-    for i in range( row_kernel):
-        for j in range( col_kernel):
+    for i in range(row_kernel):
+        for j in range(col_kernel):
 
             value_kernel = float(input("Enter the value: "))
             kernel[i, j] = value_kernel
